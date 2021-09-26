@@ -1,0 +1,11 @@
+.user-info ul {
+     margin-top: 1.5rem;
+     margin-bottom: 1.2rem;
+}
+.user-info li > button {
+     color: #000000 !important;
+     font-size: 0.95rem;
+}
+.user-info p {
+     font-size: 0.95rem;
+}

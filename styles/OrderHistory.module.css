@@ -1,0 +1,17 @@
+.table {
+     font-size: 0.9rem;
+}
+.table button {
+     font-size: 0.9rem;
+}
+.table button:hover {
+     color: #726c6c;
+}
+.table .details {
+     width: 20%;
+}
+@media (max-width: 768px) {
+     .table .details {
+          width: 10%;
+     }
+}

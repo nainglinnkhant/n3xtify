@@ -1,0 +1,30 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+     box-sizing: border-box;
+}
+body {
+     font-family: 'Poppins', sans-serif;
+}
+a {
+     text-decoration: none;
+}
+a:hover {
+     color: #000000;
+}
+button:focus {
+     box-shadow: none !important;
+}
+input:focus, textarea:focus, select:focus {
+     box-shadow: none !important;
+     border-color: #ced4da !important;
+}
+::-webkit-scrollbar {
+     width: 8px;
+     height: 8px;
+}
+::-webkit-scrollbar-thumb {
+     background: #D1D5DB;
+     border-radius: 5px;
+}
