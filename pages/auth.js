@@ -3,10 +3,10 @@ import Head from 'next/head'
 import useInit from '../hooks/useInit'
 import Login from '../components/Auth/Login'
 import Signup from '../components/Auth/Signup'
-import RouteGuard from '../components/RouteGuard/RouteGuard'
+import routeGuard from '../components/RouteGuard/routeGuard'
 import styles from '../styles/Auth.module.css'
 
-export default RouteGuard(function Auth() {
+export default routeGuard(function Auth() {
      const [mounted, setMounted] = useState(false)
      const [authMode, setAuthMode] = useState('login')
 

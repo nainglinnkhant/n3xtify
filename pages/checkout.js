@@ -8,13 +8,13 @@ import CheckoutInfo from '../components/Checkout/CheckoutInfo'
 import PaymentForm from '../components/Checkout/PaymentForm'
 import Confirmation from '../components/Checkout/Confirmation'
 import Dialog from '../components/UI/Dialog'
-import RouteGuard from '../components/RouteGuard/RouteGuard'
+import routeGuard from '../components/RouteGuard/routeGuard'
 import styles from '../styles/Checkout.module.css'
 import useInit from '../hooks/useInit'
 
 const MIN_SHIPPING_COST = 15
 
-export default RouteGuard(function Checkout() {
+export default routeGuard(function Checkout() {
      const router = useRouter()
 
      useInit()
