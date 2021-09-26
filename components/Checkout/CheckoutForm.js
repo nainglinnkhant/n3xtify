@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { COUNTRY_LIST, validateForm } from '../../utils/utils'
 import styles from '../../styles/Form.module.css'
@@ -20,17 +20,17 @@ export default function CheckoutForm({ onStepChange, setShipping, minShippingCos
 
      const isFormValid = validateForm({ email, firstname, lastname, address, city, postalCode, phoneNumber })
 
-     const calculateShipping = (country) => {
+     const calculateShipping =  useCallback((country) => {
           return country.length > 1 
                ? Number(country[0]) + Number(country[1]) + minShippingCost 
                : Number(country[0]) + minShippingCost
-     }
+     }, [minShippingCost])
 
      useEffect(() => {
           let shipping = calculateShipping(country)
 
           setShipping(shipping)
-     }, [country])
+     }, [country, calculateShipping])
 
      const handleSubmit = (e) => {
           e.preventDefault()

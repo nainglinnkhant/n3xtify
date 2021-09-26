@@ -11,11 +11,13 @@ export default function OrderHistory() {
 
      const { fetchRequest } = useControlState()
 
+     const { length: orderHistoryLength } = orderHistory
+
      useEffect(() => {
-          if(!userId || orderHistory.length !== 0) return
+          if(!userId || orderHistoryLength !== 0) return
 
           fetchRequest(fetchOrderHistory.bind(null, userId))
-     }, [fetchRequest, userId])
+     }, [fetchRequest, userId, orderHistoryLength])
 
      if(orderHistory.length === 0) {
           return <p className='text-center mt-4'>You don't have any order history yet.</p>

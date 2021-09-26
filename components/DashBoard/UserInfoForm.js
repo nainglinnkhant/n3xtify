@@ -25,29 +25,33 @@ export default function UserInfoForm() {
 
      const { loading, error: requestError, setError: setRequestError, fetchRequest } = useControlState()
 
-     useEffect(async () => {
+     useEffect(() => {
           if(!userId) return
 
-          const response = await fetch(`${FIREBASE_URL}/${userId}/user-info.json`)
-          const { 
-               email, 
-               firstname, 
-               lastname, 
-               address, 
-               city, 
-               country, 
-               postalCode, 
-               phoneNumber 
-          } = await response.json()
+          const fetchUserInfo = async () => {
+               const response = await fetch(`${FIREBASE_URL}/${userId}/user-info.json`)
+               const { 
+                    email, 
+                    firstname, 
+                    lastname, 
+                    address, 
+                    city, 
+                    country, 
+                    postalCode, 
+                    phoneNumber 
+               } = await response.json()
 
-          setEmail(email || '')
-          setFirstname(firstname || '')
-          setLastname(lastname || '')
-          setAddress(address || '')
-          setCity(city || '')
-          setCountry(country || 1)
-          setPostalCode(postalCode || '')
-          setPhoneNumber(phoneNumber || '')
+               setEmail(email || '')
+               setFirstname(firstname || '')
+               setLastname(lastname || '')
+               setAddress(address || '')
+               setCity(city || '')
+               setCountry(country || 1)
+               setPostalCode(postalCode || '')
+               setPhoneNumber(phoneNumber || '')
+          }
+
+          fetchUserInfo()
      }, [userId])
 
      const handleSubmit = (e) => {
