@@ -5,10 +5,10 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import UserInfoForm from '../components/DashBoard/UserInfoForm'
 import OrderHistory from '../components/DashBoard/OrderHistory'
-import routeGuard from '../components/RouteGuard/routeGuard'
+import RouteGuard from '../components/RouteGuard/RouteGuard'
 import styles from '../styles/Dashboard.module.css'
 
-export default routeGuard(function Dashboard() {
+export default RouteGuard(function Dashboard() {
      const [mounted, setMounted] = useState(false)
      const [key, setKey] = useState('user-info')
 

@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import useInit from '../hooks/useInit'
 import { generateId } from '../utils/utils'
 import CheckoutForm from '../components/Checkout/CheckoutForm'
 import CheckoutInfo from '../components/Checkout/CheckoutInfo'
 import PaymentForm from '../components/Checkout/PaymentForm'
 import Confirmation from '../components/Checkout/Confirmation'
 import Dialog from '../components/UI/Dialog'
-import routeGuard from '../components/RouteGuard/routeGuard'
+import RouteGuard from '../components/RouteGuard/RouteGuard'
 import styles from '../styles/Checkout.module.css'
-import useInit from '../hooks/useInit'
 
 const MIN_SHIPPING_COST = 15
 
-export default routeGuard(function Checkout() {
+export default RouteGuard(function Checkout() {
      const router = useRouter()
 
      useInit()
@@ -108,7 +108,7 @@ export default routeGuard(function Checkout() {
                               )}
                          </div>
 
-                         <CheckoutInfo items={items} shipping={shipping} subtotal={subtotal} total={total} />
+                         <CheckoutInfo items={items} subtotal={subtotal} shipping={shipping} total={total} />
                     </div>
                </div>
           </>

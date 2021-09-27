@@ -30,7 +30,7 @@ export default function CheckoutForm({ onStepChange, setShipping, minShippingCos
           let shipping = calculateShipping(country)
 
           setShipping(shipping)
-     }, [country, calculateShipping])
+     }, [country, calculateShipping, setShipping])
 
      const handleSubmit = (e) => {
           e.preventDefault()
