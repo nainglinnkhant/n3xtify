@@ -1,7 +1,7 @@
 import router from 'next/router'
 
 export default function RouteGuard(WrappedComponent, authGuard = true) {
-     return (props) => {
+     return function Guard(props) {
           if (typeof window !== 'undefined') {
                const userId = localStorage.getItem('n3xtify-userId')
 
