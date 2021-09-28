@@ -18,6 +18,7 @@ export default function ProductDetails({ product }) {
      const cartItems = useSelector(state => state.cart.items)
 
      const [quantity, setQuantity] = useState(1)
+     const quantityNum = Number(quantity)
 
      const { loading: cartLoading, error: cartError } = useInit()
 
@@ -30,9 +31,9 @@ export default function ProductDetails({ product }) {
                item 
                ? fetchRequest(updateCart.bind(null, userId, item.firebaseId, { 
                     ...product,
-                    quantity: quantity + item.quantity
+                    quantity: quantityNum + item.quantity
                  }))
-               : fetchRequest(addToCart.bind(null, userId, { ...product, quantity }))
+               : fetchRequest(addToCart.bind(null, userId, { ...product, quantity: quantityNum }))
           } else {
                router.push('/auth')
           }
@@ -40,7 +41,7 @@ export default function ProductDetails({ product }) {
 
      const handleBuyItNow = () => {
           if(userId) {
-               dispatch(buyNowActions.setBuyNowItem([{ ...product, quantity }]))
+               dispatch(buyNowActions.setBuyNowItem([{ ...product, quantity: quantityNum }]))
                router.push('/checkout?method=buy-now')
           } else {
                router.push('/auth')
@@ -70,7 +71,9 @@ export default function ProductDetails({ product }) {
                                    id='quantity' 
                                    className='form-control d-inline-block me-2 px-2 py-1'
                                    value={quantity}
-                                   onChange={(e) => setQuantity(Number(e.target.value))}
+                                   onChange={(e) => setQuantity(e.target.value)}
+                                   min='1'
+                                   max='20'
                               />
                               <label htmlFor='quantity'>Quantity</label>
                          </div>
@@ -78,7 +81,7 @@ export default function ProductDetails({ product }) {
                          <button 
                               className={`btn ${styles['btn-cart']}`} 
                               onClick={handleAddToCart}
-                              disabled={cartLoading || cartError}
+                              disabled={cartLoading || cartError || quantityNum < 1 || quantityNum > 20}
                          >
                               {loading ? <Spinner /> : 'ADD TO CART'}
                          </button>
