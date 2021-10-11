@@ -8,6 +8,10 @@ export default function CheckoutForm({ onStepChange, setShipping, minShippingCos
      const userInfo = useSelector(state => state.dashboard.userInfo)
      const formData = fillForm ? cachedInfo || userInfo : cachedInfo
 
+     const cartItems = useSelector(state => state.cart.items)
+     const buyNowItem = useSelector(state => state.buyNow.item)
+     const paymentDisabled = cartItems.length === 0 && buyNowItem.length === 0
+
      const [email, setEmail] = useState(formData?.email || '')
      const [firstname, setFirstname] = useState(formData?.firstname || '')
      const [lastname, setLastname] = useState(formData?.lastname || '')
@@ -152,7 +156,7 @@ export default function CheckoutForm({ onStepChange, setShipping, minShippingCos
                     />
                </div>
 
-               <button className='btn'>CONTINUE TO PAYMENT</button>
+               <button className='btn' disabled={paymentDisabled}>CONTINUE TO PAYMENT</button>
 
                {error && <p className={`mb-0 mt-3 ${styles.error}`}>{error}</p>}
           </form>
