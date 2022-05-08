@@ -31,7 +31,7 @@ export default function CheckoutForm({ onStepChange, setShipping, minShippingCos
      }, [minShippingCost])
 
      useEffect(() => {
-          let shipping = calculateShipping(country)
+          let shipping = calculateShipping(country.toString())
 
           setShipping(shipping)
      }, [country, calculateShipping, setShipping])
