@@ -1,31 +1,33 @@
 .form {
-     padding-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 .form label {
-     font-size: 0.9rem;
+    font-size: 0.9rem;
 }
 .form input {
-     padding: 5px 8px;
-     height: 35px;
+    padding: 5px 8px;
+    height: 35px;
 }
-.form input, .form textarea, .form select {
-     font-size: 0.9rem;
+.form input,
+.form textarea,
+.form select {
+    font-size: 0.9rem;
 }
 .form .error {
-     color: #e61818;
-     font-size: 0.9rem;
+    color: #e61818;
+    font-size: 0.9rem;
 }
 .form button {
-     color: #ffffff;
-     background: #000000;
-     border-color: #000000;
-     letter-spacing: 1px;
-     margin-top: 1.5rem;
-     font-size: 0.85rem;
-     padding: 0.5rem 0.7rem;
+    color: #ffffff;
+    background: #000000;
+    border-color: #000000;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.7rem;
 }
 .form button:hover {
-     color: #ffffff;
-     background: #524f4f;
-     border-color: #524f4f;
+    color: #ffffff;
+    background: #524f4f;
+    border-color: #524f4f;
 }

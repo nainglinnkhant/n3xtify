@@ -5,38 +5,38 @@ const FIREBASE_URL = process.env.NEXT_PUBLIC_FIREBASE_URL
 const ERROR_MSG = 'Failed to connect to server.'
 
 export const updateUserInfo = (userId, userInfo) => {
-     return async (dispatch) => {
-          await sendRequest(
-               `${FIREBASE_URL}/${userId}/user-info.json`,
-               { method: 'PUT', body: JSON.stringify(userInfo) },
-               ERROR_MSG
-          )
+    return async (dispatch) => {
+        await sendRequest(
+            `${FIREBASE_URL}/${userId}/user-info.json`,
+            { method: 'PUT', body: JSON.stringify(userInfo) },
+            ERROR_MSG
+        )
 
-          dispatch(dashboardActions.setUserInfo(userInfo))
-     }
+        dispatch(dashboardActions.setUserInfo(userInfo))
+    }
 }
 
 export const fetchUserInfo = (userId) => {
-     return async (dispatch) => {
-          const url = `${FIREBASE_URL}/${userId}/user-info.json`
-          const responseData = await sendRequest(url, null, ERROR_MSG)
+    return async (dispatch) => {
+        const url = `${FIREBASE_URL}/${userId}/user-info.json`
+        const responseData = await sendRequest(url, null, ERROR_MSG)
 
-          dispatch(dashboardActions.setUserInfo(responseData))
-     }
+        dispatch(dashboardActions.setUserInfo(responseData))
+    }
 }
 
 export const fetchOrderHistory = (userId) => {
-     return async (dispatch) => {
-          const url = `${FIREBASE_URL}/${userId}/order-history.json`
-          const responseData = await sendRequest(url, null, ERROR_MSG)
-          
-          if(!responseData) return
+    return async (dispatch) => {
+        const url = `${FIREBASE_URL}/${userId}/order-history.json`
+        const responseData = await sendRequest(url, null, ERROR_MSG)
 
-          const orderHistory = []
-          for(const key in responseData) {
-               orderHistory.push({ ...responseData[key] })
-          }
+        if (!responseData) return
 
-          dispatch(dashboardActions.setOrderHistory(orderHistory))
-     }
+        const orderHistory = []
+        for (const key in responseData) {
+            orderHistory.push({ ...responseData[key] })
+        }
+
+        dispatch(dashboardActions.setOrderHistory(orderHistory))
+    }
 }

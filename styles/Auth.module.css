@@ -1,58 +1,58 @@
 .auth h2 {
-     font-size: 1.2rem;
-     margin-top: 2.5rem;
-     margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 .auth label {
-     font-size: 0.9rem;
+    font-size: 0.9rem;
 }
 .auth input {
-     font-size: 0.9rem;
-     padding: 5px 8px;
-     height: 35px;
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    height: 35px;
 }
 .auth button {
-     color: #ffffff;
-     background: #000000;
-     border-color: #000000;
-     letter-spacing: 2px;
-     margin-top: 1.5rem;
-     font-size: 0.85rem;
-     width: 8rem;
+    color: #ffffff;
+    background: #000000;
+    border-color: #000000;
+    letter-spacing: 2px;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    width: 8rem;
 }
 .auth button:hover {
-     color: #ffffff;
-     background: #524f4f;
-     border-color: #524f4f;
+    color: #ffffff;
+    background: #524f4f;
+    border-color: #524f4f;
 }
 .auth p {
-     font-size: 0.85rem;
-     margin-top: 1.3rem;
+    font-size: 0.85rem;
+    margin-top: 1.3rem;
 }
 .auth span {
-     cursor: pointer;
+    cursor: pointer;
 }
 .auth span:hover {
-     text-decoration: underline;
-     color: #726c6c;
+    text-decoration: underline;
+    color: #726c6c;
 }
 .auth .invalid label {
-     color: #e61818;
+    color: #e61818;
 }
 .auth .invalid input {
-     border-color: #e61818;
-     background: #fddddd;
+    border-color: #e61818;
+    background: #fddddd;
 }
 .auth .invalid input:focus {
-     border-color: #e61818 !important;
+    border-color: #e61818 !important;
 }
 .auth .error {
-     color: #e61818;
-     font-size: 0.9rem;
+    color: #e61818;
+    font-size: 0.9rem;
 }
 @media (max-width: 768px) {
-     .auth h2 {
-          margin-top: 1.8rem;
-          margin-bottom: 1.2rem;
-     }
+    .auth h2 {
+        margin-top: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
 }
