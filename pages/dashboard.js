@@ -9,43 +9,43 @@ import RouteGuard from '../components/RouteGuard/RouteGuard'
 import styles from '../styles/Dashboard.module.css'
 
 export default RouteGuard(function Dashboard() {
-     const [mounted, setMounted] = useState(false)
-     const [key, setKey] = useState('user-info')
+    const [mounted, setMounted] = useState(false)
+    const [key, setKey] = useState('user-info')
 
-     useEffect(() => {
-          setMounted(true)
-     }, [])
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
-     useInit()
+    useInit()
 
-     if(!mounted) return null
+    if (!mounted) return null
 
-     return (
-          <>
-               <Head>
-                    <title>N3xtify | Dashboard</title>
-               </Head>
+    return (
+        <>
+            <Head>
+                <title>N3xtify | Dashboard</title>
+            </Head>
 
-               <div className={`container pb-3 ${styles['user-info']}`}>
-                    <div className='row'>
-                         <div className='col-12 col-lg-8 offset-lg-2'>
-                              <Tabs
-                                   id="controlled-tab-example"
-                                   activeKey={key}
-                                   onSelect={(key) => setKey(key)}
-                                   className="mb-3"
-                              >
-                                   <Tab eventKey="user-info" title="User Info">
-                                        <UserInfoForm />
-                                   </Tab>
+            <div className={`container pb-3 ${styles['user-info']}`}>
+                <div className='row'>
+                    <div className='col-12 col-lg-8 offset-lg-2'>
+                        <Tabs
+                            id='controlled-tab-example'
+                            activeKey={key}
+                            onSelect={(key) => setKey(key)}
+                            className='mb-3'
+                        >
+                            <Tab eventKey='user-info' title='User Info'>
+                                <UserInfoForm />
+                            </Tab>
 
-                                   <Tab eventKey="order-history" title="Order History">
-                                        <OrderHistory />
-                                   </Tab>
-                              </Tabs>
-                         </div>
+                            <Tab eventKey='order-history' title='Order History'>
+                                <OrderHistory />
+                            </Tab>
+                        </Tabs>
                     </div>
-               </div>
-          </>
-     )
+                </div>
+            </div>
+        </>
+    )
 })

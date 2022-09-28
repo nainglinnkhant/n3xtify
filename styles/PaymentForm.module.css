@@ -1,25 +1,25 @@
 .payment-form {
-     padding-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 .payment-form .btn-pay {
-     color: #ffffff;
-     background: #000000;
-     border-color: #000000;
-     letter-spacing: 1px;
-     font-size: 0.85rem;
-     width: 8rem;
-     height: 2.2rem;
+    color: #ffffff;
+    background: #000000;
+    border-color: #000000;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    width: 8rem;
+    height: 2.2rem;
 }
 .payment-form .btn-pay:hover {
-     color: #ffffff;
-     background: #524f4f;
-     border-color: #524f4f;
+    color: #ffffff;
+    background: #524f4f;
+    border-color: #524f4f;
 }
 .payment-form .btn-back {
-     color: #000000;
-     font-size: 0.85rem;
-     padding: 0;
+    color: #000000;
+    font-size: 0.85rem;
+    padding: 0;
 }
 .payment-form .error {
-     color: #e61818;
+    color: #e61818;
 }

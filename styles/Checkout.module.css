@@ -1,31 +1,31 @@
 .checkout i {
-     font-size: 0.8rem;
+    font-size: 0.8rem;
 }
 .checkout .step {
-     font-size: 1rem;
-     color: #9b9494;
+    font-size: 1rem;
+    color: #9b9494;
 }
 .checkout .active {
-     color: #000000;
+    color: #000000;
 }
 .checkout ul {
-     list-style-type: none;
-     padding-left: 0;
+    list-style-type: none;
+    padding-left: 0;
 }
 .checkout p {
-     font-size: 0.9rem;
+    font-size: 0.9rem;
 }
 .btn-home {
-     color: #ffffff;
-     background: #000000;
-     border-color: #000000;
-     letter-spacing: 1px;
-     margin-top: 1.5rem;
-     font-size: 0.85rem;
-     padding: 0.45rem 0.7rem;
+    color: #ffffff;
+    background: #000000;
+    border-color: #000000;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.7rem;
 }
 .btn-home:hover {
-     color: #ffffff;
-     background: #524f4f;
-     border-color: #524f4f;
+    color: #ffffff;
+    background: #524f4f;
+    border-color: #524f4f;
 }

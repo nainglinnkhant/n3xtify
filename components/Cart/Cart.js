@@ -11,99 +11,106 @@ import Spinner from '../UI/Spinner'
 import styles from '../../styles/Cart.module.css'
 
 export default function Cart() {
-     const router = useRouter()
-     
-     const { show, openOffcanvas, closeOffcanvas } = useOffcanvasStateContext()
+    const router = useRouter()
 
-     const userId = useSelector(state => state.auth.userId)
-     const cartItems = useSelector(state => state.cart.items)
+    const { show, openOffcanvas, closeOffcanvas } = useOffcanvasStateContext()
 
-     const cartItemsCount = cartItems.reduce((acc, cur) => acc + cur.quantity, 0)
-     const subtotal = cartItems.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-     const inCheckout = router.pathname.includes('checkout')
+    const userId = useSelector((state) => state.auth.userId)
+    const cartItems = useSelector((state) => state.cart.items)
 
-     const { loading, fetchRequest } = useControlState()
+    const cartItemsCount = cartItems.reduce((acc, cur) => acc + cur.quantity, 0)
+    const subtotal = cartItems.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
+    const inCheckout = router.pathname.includes('checkout')
 
-     const handleUpdateCart = (item, method) => {
-          const product = method === 'increase' 
-               ? { ...item, quantity: item.quantity + 1 }
-               : { ...item, quantity: item.quantity - 1 }
+    const { loading, fetchRequest } = useControlState()
 
-          fetchRequest(updateCart.bind(null, userId, item.firebaseId, product))
-     }
+    const handleUpdateCart = (item, method) => {
+        const product =
+            method === 'increase'
+                ? { ...item, quantity: item.quantity + 1 }
+                : { ...item, quantity: item.quantity - 1 }
 
-     const handleEmptyCart = () => {
-          fetchRequest(emptyCart.bind(null, userId))
-     }
+        fetchRequest(updateCart.bind(null, userId, item.firebaseId, product))
+    }
 
-     const handleCheckout = () => {
-          router.push('/checkout')
-          closeOffcanvas()
-     }
+    const handleEmptyCart = () => {
+        fetchRequest(emptyCart.bind(null, userId))
+    }
 
-     return (
-          <>
-               <button className='btn ms-2 p-0 position-relative' onClick={openOffcanvas} disabled={inCheckout}>
-                    <i className='fas fa-shopping-cart fs-5'></i>
-                    {cartItemsCount > 0 && <span className={styles['item-count']}>{cartItemsCount}</span>}
-               </button>
+    const handleCheckout = () => {
+        router.push('/checkout')
+        closeOffcanvas()
+    }
 
-               <Offcanvas show={show} onHide={closeOffcanvas} placement='end'>
-                    <Offcanvas.Header>
-                         <div className='d-flex justify-content-between align-items-center w-100 mx-1'>
-                              <h1 className='fs-5 mb-0'>Cart</h1>
+    return (
+        <>
+            <button
+                className='btn ms-2 p-0 position-relative'
+                onClick={openOffcanvas}
+                disabled={inCheckout}
+            >
+                <i className='fas fa-shopping-cart fs-5'></i>
+                {cartItemsCount > 0 && (
+                    <span className={styles['item-count']}>{cartItemsCount}</span>
+                )}
+            </button>
 
-                              <Button variant='light' onClick={closeOffcanvas}>
-                                   <i className='fas fa-times'></i>
-                              </Button>
-                         </div>
-                    </Offcanvas.Header>
+            <Offcanvas show={show} onHide={closeOffcanvas} placement='end'>
+                <Offcanvas.Header>
+                    <div className='d-flex justify-content-between align-items-center w-100 mx-1'>
+                        <h1 className='fs-5 mb-0'>Cart</h1>
 
-                    <Offcanvas.Body>
-                         <div className='d-flex flex-column h-100'>
-                              {cartItems.length === 0 && (
-                                   <p className={styles.empty}>Your cart is currently empty.</p>
-                              )}
-                                    
-                              {cartItems.length > 0 && (
-                                   <ul className={styles.cart}>
-                                        {cartItems.map(item => (
-                                             <CartItem 
-                                                  key={item.id} 
-                                                  item={item} 
-                                                  onUpdateCart={handleUpdateCart} 
-                                             />
-                                        ))}
-                                   </ul>
-                              )}
+                        <Button variant='light' onClick={closeOffcanvas}>
+                            <i className='fas fa-times'></i>
+                        </Button>
+                    </div>
+                </Offcanvas.Header>
 
-                              {cartItems.length > 0 && (
-                                   <button 
-                                        className={`btn ${styles['btn-empty']}`} 
-                                        onClick={handleEmptyCart}
-                                        disabled={loading}
-                                   >
-                                        {loading ? <Spinner red /> : 'EMPTY CART'}
-                                   </button>
-                              )}
+                <Offcanvas.Body>
+                    <div className='d-flex flex-column h-100'>
+                        {cartItems.length === 0 && (
+                            <p className={styles.empty}>Your cart is currently empty.</p>
+                        )}
 
-                              <div className={styles.checkout}>
-                                   <div className='d-flex justify-content-between'>
-                                        <p>SUBTOTAL</p>
-                                        <p className='me-1'>{formatPrice(subtotal)}</p>
-                                   </div>
+                        {cartItems.length > 0 && (
+                            <ul className={styles.cart}>
+                                {cartItems.map((item) => (
+                                    <CartItem
+                                        key={item.id}
+                                        item={item}
+                                        onUpdateCart={handleUpdateCart}
+                                    />
+                                ))}
+                            </ul>
+                        )}
 
-                                   <button 
-                                        className='btn' 
-                                        disabled={loading || cartItems.length === 0} 
-                                        onClick={handleCheckout}
-                                   >
-                                        {loading ? <Spinner /> : 'CHECKOUT'}
-                                   </button>
-                              </div>
-                         </div>
-                    </Offcanvas.Body>
-               </Offcanvas>
-          </>
-     )
+                        {cartItems.length > 0 && (
+                            <button
+                                className={`btn ${styles['btn-empty']}`}
+                                onClick={handleEmptyCart}
+                                disabled={loading}
+                            >
+                                {loading ? <Spinner red /> : 'EMPTY CART'}
+                            </button>
+                        )}
+
+                        <div className={styles.checkout}>
+                            <div className='d-flex justify-content-between'>
+                                <p>SUBTOTAL</p>
+                                <p className='me-1'>{formatPrice(subtotal)}</p>
+                            </div>
+
+                            <button
+                                className='btn'
+                                disabled={loading || cartItems.length === 0}
+                                onClick={handleCheckout}
+                            >
+                                {loading ? <Spinner /> : 'CHECKOUT'}
+                            </button>
+                        </div>
+                    </div>
+                </Offcanvas.Body>
+            </Offcanvas>
+        </>
+    )
 }

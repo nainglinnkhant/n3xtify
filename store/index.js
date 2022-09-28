@@ -6,13 +6,13 @@ import buyNowSlice from './buy-now/buy-now-slice'
 import dashboardSlice from './dashboard/dashboard-slice'
 
 const store = configureStore({
-     reducer: {
-          products: productsSlice,
-          auth: authSlice,
-          cart: cartSlice,
-          buyNow: buyNowSlice,
-          dashboard: dashboardSlice
-     }
+    reducer: {
+        products: productsSlice,
+        auth: authSlice,
+        cart: cartSlice,
+        buyNow: buyNowSlice,
+        dashboard: dashboardSlice,
+    },
 })
 
 export default store
