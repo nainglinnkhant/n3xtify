@@ -29,8 +29,25 @@
 .product p {
     font-size: 0.95rem;
 }
+.product .skeleton {
+    margin: 0 auto;
+    background: hsl(195, 8%, 79%);
+    height: 170px;
+    width: 200px;
+    border-radius: 5px;
+    animation: skeleton-loading 0.8s linear infinite alternate;
+}
 @media (max-width: 450px) {
-    .product .img-container {
+    .product .img-container, .product .skeleton {
         height: 150px;
+    }
+}
+@keyframes skeleton-loading {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
