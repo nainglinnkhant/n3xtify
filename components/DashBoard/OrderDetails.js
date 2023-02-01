@@ -14,6 +14,7 @@ export default function OrderDetails({ details, onClose }) {
 
                     <dialog className={styles['order-details']} open>
                         <button className='btn' onClick={onClose}>
+                            <span className='hidden'>Close</span>
                             <i className='fas fa-times'></i>
                         </button>
 

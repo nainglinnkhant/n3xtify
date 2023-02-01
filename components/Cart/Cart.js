@@ -49,6 +49,7 @@ export default function Cart() {
                 onClick={openOffcanvas}
                 disabled={inCheckout}
             >
+                <span className='hidden'>Cart</span>
                 <i className='fas fa-shopping-cart fs-5'></i>
                 {cartItemsCount > 0 && (
                     <span className={styles['item-count']}>{cartItemsCount}</span>
@@ -61,6 +62,7 @@ export default function Cart() {
                         <h1 className='fs-5 mb-0'>Cart</h1>
 
                         <Button variant='light' onClick={closeOffcanvas}>
+                            <span className='hidden'>Close</span>
                             <i className='fas fa-times'></i>
                         </Button>
                     </div>

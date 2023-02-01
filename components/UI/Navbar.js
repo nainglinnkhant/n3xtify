@@ -28,6 +28,7 @@ export default function Navbar() {
 
                 <div className='col-4 text-end'>
                     <button className='btn me-2 p-0' onClick={handleLink}>
+                        <span className='hidden'>User Info</span>
                         <i className='fas fa-user fs-5'></i>
                     </button>
 

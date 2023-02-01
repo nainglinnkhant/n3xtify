@@ -46,12 +46,14 @@ export default function Sidebar() {
     return (
         <div className='col-4'>
             <button className='btn p-0' onClick={handleShow}>
+                <span className='hidden'>Open</span>
                 <i className='fas fa-bars fs-5'></i>
             </button>
 
             <Offcanvas show={show} onHide={handleClose} className={styles.offcanvas}>
                 <Offcanvas.Header className='d-flex justify-content-end'>
                     <Button variant='dark' onClick={handleClose}>
+                        <span className='hidden'>Close</span>
                         <i className='fas fa-times'></i>
                     </Button>
                 </Offcanvas.Header>

@@ -30,3 +30,7 @@ select:focus {
     background: #d1d5db;
     border-radius: 5px;
 }
+.hidden {
+    position: absolute;
+    left: -100000px;
+}
